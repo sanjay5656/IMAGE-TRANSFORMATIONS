@@ -3,39 +3,39 @@
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-input_img=cv2.imread("color image of flower.jpg")
-input_img=cv2.cvtColor(input_img,cv2.)
+in_img=cv2.imread("DOG.jpg")
+in_img=cv2.cvtColor(in_img,cv2.COLOR_BGR2RGB)
 plt.axis('off')
-plt.imshow(input_img)
+plt.imshow(in_img)
 plt.show()
-rows,cols,dim=input_img.shape
-M=np.float32([[1,0,20],
-             [0,1,50],
-             [0,0,1]])
-translated_img=cv2.
-plt.axis('off')
-
 
 
 ##ii)Image Scaling
 
-scaled_img=cv2.warpPerspective(input_img,M,(cols,rows))
+rows,cols,dim=in_img.shape
+M=np.float32([[1,0,300],
+              [0,1,300],
+              [0,0,1]])
+trans_img=cv2.warpPerspective(in_img, M, (cols,rows))
 plt.axis('off')
-plt.imshow(scaled_img)
-plt.show()
+plt.imshow(trans_img)
+plt.show()  
 
 
 ##iii)Image Shearing
-M_x=np.float32([[1,0.2,0],
-               [0,1,0],
-               [0,0,1]])
-M_y=np.
-sheared_img_xaxis=cv2.warpPerspective(input_img,M_x,(cols,rows))
-sheared_img_yaxis=
+M_x=np.float32([[1,0.5,0],
+                [0,1 ,0],
+                [0,0 ,1]])
+M_y=np.float32([[1,  0,0],
+                [0.5,1,0],
+                [0,  0,1]])
+sheared_img_x=cv2.warpPerspective(in_img,M_x,(int(cols),int(rows)))
+sheared_img_y=cv2.warpPerspective(in_img,M_y,(int(cols),int(rows)))
 plt.axis('off')
-plt.imshow(sheared_img_xaxis)
+plt.imshow(sheared_img_x)
 plt.show()
-plt.axis
+plt.axis('off')
+plt.imshow(sheared_img_y)
 plt.show()
 
 
